@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Map-Test</title>
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Test Map</h1>
+    <div id="map"></div>
+    <script>
+        function initMap() {
+            //Mao options
+            var options = {
+                zoom: 13.5,
+                center: { lat: 35.2271, lng: -80.8431 }//Charlotte
+            }
+            //New map
+            var map = new google.maps.Map(document.getElementById("map"), options);
+
+            //Listen for click on map
+            google.maps.event.addListener(map, "click", function(event){
+                //Add marker
+                addMarker({coords:event.latLng});
+            });
+            /*
+                 //Add marker
+                 var marker = new google.maps.Marker({
+                     position:{lat:35.2271, lng:-80.8431},
+                     map:map,
+                     icon:""
+                 });
+                 //Add information window
+                 var infoWindow = new google.maps.InfoWindow({
+                     content:"<h1>Charlotte, NC</h1>"
+                 });
+     
+                 marker.addListener("click", function(){
+                     infoWindow.open(map, marker);
+                 });
+            */
+
+            //Array of markers
+            var markers = [
+                {
+                    coords: { lat: 35.2246, lng: -80.8458 },
+                    iconImage: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+                    content: "<h2>Mimosa Grill</h2>"
+                },{ 
+                    coords: { lat: 35.2294, lng: -80.8409 },
+                    content: "<h2>Discovery Place</h2>"
+                },{
+                    coords: { lat: 35.2258, lng: -80.8528 },
+                    content: "<h2>Bank of America Stadium</h2>"
+                },{
+                    coords: { lat: 35.2379, lng: -80.8521 },
+                    content: "<h2>Ray's Splash Planet</h2>"
+                },{
+                    coords: { lat: 35.2160, lng: -80.8264 },
+                    content: "<h2>Independence Park</h2>"
+                }
+
+            ];
+
+            //Loop through markers
+            for(var i = 0; i < markers.length; i++){
+                //Add marker
+                addMarker(markers[i]);
+            }
+
+            /*
+            //Call function and inserting coords
+            addMarker({
+                coords: { lat: 35.2246, lng: -80.8458 },
+                iconImage: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+                content: "<h2>Mimosa Grill</h2>"
+            });//Mimosa Grill
+            addMarker({ coords: { lat: 35.2294, lng: -80.8409 } });//Dicovery Place
+            addMarker({ coords: { lat: 35.2258, lng: -80.8528 } });//Bank of America Stadium
+            addMarker({ coords: { lat: 35.2379, lng: -80.8521 } });//Ray's Splash Planet
+            addMarker({ coords: { lat: 35.2160, lng: -80.8264 } });//Independence Park
+            */
+
+            //Add Marker Function
+            function addMarker(props) {
+                var marker = new google.maps.Marker({
+                    position: props.coords,
+                    map: map,
+                    // icon: props.iconImage
+                });
+
+                //Check for custom icon
+                if (props.iconImage) {
+                    //Set icon image
+                    marker.setIcon(props.iconImage);
+                }
+
+                //Check content
+                if (props.content) {
+                    var infoWindow = new google.maps.InfoWindow({
+                        content: props.content
+                    });
+
+                    marker.addListener("click", function () {
+                        infoWindow.open(map, marker);
+                    });
+                }
+            }
+        }
+
+    </script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6vUV61eUAanKcWusOEC62GdPV0CpxNNA&callback=initMap">
+    </script>
+
+</body>
+
+</html>
