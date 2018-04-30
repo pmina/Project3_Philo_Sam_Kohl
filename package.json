@@ -1,0 +1,28 @@
+{
+  "name": "project3_philo_sam_kohl",
+  "version": "1.0.0",
+  "description": "this is our read me! (NEED TO UPDATE)",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "mysql": "^2.15.0",
+    "mysql2": "^1.5.3",
+    "sequelize": "^4.37.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KohlEisenschmidt/Project3_Philo_Sam_Kohl.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KohlEisenschmidt/Project3_Philo_Sam_Kohl/issues"
+  },
+  "homepage": "https://github.com/KohlEisenschmidt/Project3_Philo_Sam_Kohl#readme"
+}
