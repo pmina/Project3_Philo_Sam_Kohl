@@ -8,12 +8,16 @@ CREATE TABLE auctions(
   id INT NOT NULL AUTO_INCREMENT,
 
   person_name VARCHAR(100) NOT NULL,
+  post VARCHAR(100) NOT NULL,
+  
 
   event_coordinates1 INT,
   event_coordinates2 INT,
 
   user_coordinates1 INT,
   user_coordinates2 INT,
+
+  createdAt TIMESTAMP NOT NULL,
   
 --   category VARCHAR(45) NOT NULL,
 --   starting_bid INT default 0,
