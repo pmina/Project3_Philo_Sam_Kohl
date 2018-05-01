@@ -1,4 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
+
     var comment_table = sequelize.define(
         "comment_table", {
         person_name: DataTypes.STRING, 
@@ -34,10 +35,15 @@ module.exports = function(sequelize, DataTypes) {
     {
         timestamps: true
     }
+);
 
     // Syncs with DB
-  Profile.sync();
+    comment_table.sync();
+    person_table.sync();
+    event_table.sync();
 
-
-    return User;
-}
+    
+    return comment_table;
+    return person_table;
+    return event_table;
+};
