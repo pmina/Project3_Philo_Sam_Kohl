@@ -6,4 +6,8 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/login.html"));
   });
+  //homepage
+  app.get("/map", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/mapTest.html"));
+  });
 };
