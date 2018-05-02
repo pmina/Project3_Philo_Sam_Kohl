@@ -6,9 +6,9 @@ if (process.env.JAWSDB_URL){
   connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
   connection = mysql.createConnection({
-    host: "localhost",
+    host: "local",
     user: "root",
-    password: "Kohlieo86",
+    password: "root",
     //password needs changes also in config.json
     database: "project3_db"
   })
