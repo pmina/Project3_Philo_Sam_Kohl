@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
-  var event_table = sequelize.define(
-    "event_table",
+  var Event = sequelize.define(
+    "Event",
     {
       event_name: DataTypes.STRING,
       descrption: DataTypes.STRING,
@@ -14,9 +14,6 @@ module.exports = function(sequelize, DataTypes) {
     }
   );
 
-  // Syncs with DB
 
-  event_table.sync();
-
-  return event_table;
+  return Event;
 };

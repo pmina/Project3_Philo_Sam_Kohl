@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
-  var comment_table = sequelize.define(
-    "comment_table",
+  var Comment = sequelize.define(
+    "Comment",
     {
       person_name: DataTypes.STRING,
       comment_data: DataTypes.STRING,
@@ -13,8 +13,6 @@ module.exports = function(sequelize, DataTypes) {
     }
   );
 
-  // Syncs with DB
-  comment_table.sync();
 
-  return comment_table;
+  return Comment;
 };
