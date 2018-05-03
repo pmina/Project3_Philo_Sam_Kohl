@@ -1,0 +1,14 @@
+.nav-wrapper{
+    background-color: black;
+    opacity: 0.9;    
+}
+
+.carousel .carousel-item {
+    width:500px;
+    position: absolute;
+    top: -50px;
+    left: 0;
+    font-size: 24px;
+    color: black;
+    text-align: center;
+}
