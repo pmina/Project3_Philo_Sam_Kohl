@@ -4,17 +4,19 @@ CREATE DATABASE project3_db;
 USE project3_db;
 
 
--- CREATE TABLE comment_table(
+CREATE TABLE comments (
 
---   id INT NOT NULL AUTO_INCREMENT,
---   person_name VARCHAR(100) NOT NULL,
---   comment_data VARCHAR(100) NOT NULL,
---   location VARCHAR(100) NOT NULL,
---   user_LAT FLOAT,
---   user_LNG FLOAT,
---   createdAt TIMESTAMP NOT NULL,
---   PRIMARY KEY (id)
--- );
+  id INT NOT NULL AUTO_INCREMENT,
+  person_name VARCHAR(100) NOT NULL,
+  comment_data VARCHAR(1000) NOT NULL,
+  location VARCHAR(100) NOT NULL,
+  user_LAT FLOAT,
+  user_LNG FLOAT,
+  createdAt TIMESTAMP NOT NULL,
+  updatedAt TIMESTAMP NOT NULL,
+  events_id VARCHAR(100) NOT NULL,
+  PRIMARY KEY (id)
+);
 
 -- -- (log in)
 -- CREATE TABLE person_table(
@@ -33,11 +35,11 @@ USE project3_db;
 
 -- CREATE TABLE event_table(
 
-  event_id INT NOT NULL AUTO_INCREMENT,
-  event_name VARCHAR(100) NOT NULL,
-  -- descrption VARCHAR(100) NOT NULL,
-  -- location_name VARCHAR(100) NOT NULL,
-  event_LAT FLOAT,
-  event_LNG FLOAT,
-  PRIMARY KEY (id)
-);
+--   event_id INT NOT NULL AUTO_INCREMENT,
+--   event_name VARCHAR(100) NOT NULL,
+--   -- descrption VARCHAR(100) NOT NULL,
+--   -- location_name VARCHAR(100) NOT NULL,
+--   event_LAT FLOAT,
+--   event_LNG FLOAT,
+--   PRIMARY KEY (id)
+-- );
