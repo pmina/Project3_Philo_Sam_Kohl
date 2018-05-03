@@ -1,9 +1,6 @@
 
-
-
-
 -- ====================================================================
-INSERT INTO event_table (event_name, descrption, location_name, event_LAT, event_LNG)
+INSERT INTO events (event_name, descrption, location_name, event_LAT, event_LNG)
 VALUES("Yiasou Greek Festival", "The next Greek Festival, one of Charlotte’s largest
  cultural events, will be held Sept. 7-10, 2017. Experience authentic Greek cuisine
   and try your first bite of souvlaki on a stick, sit back and watch live music and
@@ -11,13 +8,13 @@ VALUES("Yiasou Greek Festival", "The next Greek Festival, one of Charlotte’s l
     belly dancing skirts.",
      "Holy Trinity Greek Orthodox Cathedral Charlotte", 35.20746, -80.85313080000003);
 
-INSERT INTO event_table (event_name, descrption, location_name, event_LAT, event_LNG)
+INSERT INTO events (event_name, descrption, location_name, event_LAT, event_LNG)
 VALUES("Oktoberfest", "Grab your pretzel necklaces and head to Symphony Park Sept. 9,
  2017 for The Charlotte Oktoberfest. Enjoy a great premium craft beer selection and
   take advantage of the amazing food and fun activities offered at the festival.",
    "4400 Sharon Road.", 37.9563454, -87.33168590000002);
 
-INSERT INTO event_table (event_name, descrption, location_name, event_LAT, event_LNG)
+INSERT INTO events (event_name, descrption, location_name, event_LAT, event_LNG)
 VALUES("Festival in the Park", "Charlotte’s oldest (and free) arts festival, to be held
  Sept. 22-24, 2017, features fine and traditional arts and crafts. You can also enjoy
   live music during your weekend spent this festival in Freedom Park.",
