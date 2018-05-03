@@ -3,7 +3,11 @@ var path = require("path");
 
 module.exports = function(app) {
   //homepage
+  // app.get("/", function(req, res) {
+  //   res.sendFile(path.join(__dirname, "../public/login.html"));
+  // });
+  //homepage
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/mapTest.html"));
+    res.sendFile(path.join(__dirname, "../public/map.html"));
   });
 };
