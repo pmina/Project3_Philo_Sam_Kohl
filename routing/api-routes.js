@@ -35,8 +35,9 @@ module.exports = function(app) {
 
   // GET route for getting all of the comments
   app.get("/api/comments/", function(req, res) {
-    db.Post.findAll({}).then(function(dbPost) {
-      res.json(dbPost);
+    db.Comment.findAll({}).then(function(dbComment) {
+        console.log("api comments called ", dbComment);
+      res.json(dbComment);
     });
   });
 };

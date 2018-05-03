@@ -18,13 +18,15 @@ CREATE TABLE comment_table(
 
 -- (log in)
 CREATE TABLE person_table(
-
+-- server knows both ids
   id INT NOT NULL AUTO_INCREMENT,
-  is_user BOOLEAN DEFAULT true, 
+  -- user 
+  firebase_id 
   person_name VARCHAR(100) NOT NULL,
-  password VARCHAR(100) NOT NULL,
-  -- look at https://developers.facebook.com/docs/facebook-login/web for password
   email VARCHAR(100) NOT NULL,
+  password VARCHAR(100) NOT NULL,
+  is_user BOOLEAN DEFAULT true, 
+  -- look at https://developers.facebook.com/docs/facebook-login/web for password
   PRIMARY KEY (id)
 );
 

@@ -5,8 +5,8 @@ module.exports = function(sequelize, DataTypes) {
       person_name: DataTypes.STRING,
       comment_data: DataTypes.STRING,
       location: DataTypes.STRING,
-      user_LAT: DataTypes.STRING,
-      user_LNG: DataTypes.STRING
+      user_LAT: DataTypes.FLOAT,
+      user_LNG: DataTypes.FLOAT
     },
     {
       timestamps: true
