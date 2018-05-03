@@ -142,12 +142,18 @@
             google.maps.event.addListener(map, "click", function (event) {
                 marker = new google.maps.Marker({
                     position: event.latLng,
-                    map: map
+                    map: map,
                 });
 
-                google.maps.event.addListener(marker, "click", function () {
-                    infowindow.open(map, marker);
+                marker.addListener("click", function () {
+                    infoWindow.open(map, marker);
                 });
+
+                // setTimeout(function () {
+                //     marker.setMap(null);
+                //     delete marker;
+                // }, 3000);
+                // return marker;
             });
 
 
@@ -208,6 +214,7 @@
             $("#person_name").val("");
             $("#comment_data").val("");
             $("#location").val("");
+            infoWindow.close();
 
             // getComments();
         });
