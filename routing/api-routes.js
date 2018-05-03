@@ -27,7 +27,8 @@ module.exports = function(app) {
       location: req.body.location,
       user_LAT: req.body.lat,
       user_LNG: req.body.lng,
-      createdAt: req.body.created_at
+      createdAt: req.body.created_at,
+      events_id: req.body.events_id
     }).then(function(dbComment) {
       res.json(dbComment);
     });
