@@ -1,3 +1,8 @@
+body{
+    background-image: url("../images/Charlotte-Skyline.jpg");
+    background-size: 100%;
+}
+
 .nav-wrapper{
     background-color: black;
     opacity: 0.9;    
