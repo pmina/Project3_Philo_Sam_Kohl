@@ -3,15 +3,14 @@ module.exports = function(sequelize, DataTypes) {
     "Event",
     {
       event_name: DataTypes.STRING,
-      descrption: DataTypes.TEXT,
       location_name: DataTypes.STRING,
-      event_LAT: DataTypes.STRING,
-      event_LNG: DataTypes.STRING,
-      // createdAt: DataTypes.STRING
+      descrption: DataTypes.STRING,
+      event_LAT: DataTypes.FLOAT,
+      event_LNG: DataTypes.FLOAT,
     },
-    // {
-    //   timestamps: true
-    // }
+    {
+      timestamps: true
+    }
   );
 
 

@@ -37,8 +37,40 @@ module.exports = function(app) {
   // GET route for getting all of the comments
   app.get("/api/comments/", function(req, res) {
     db.Comment.findAll({}).then(function(dbComment) {
-        console.log("api comments called ", dbComment);
+      console.log("api comments called ", dbComment);
       res.json(dbComment);
     });
   });
+
+  //GET route for getting all the events
+  app.get("/api/events", function(req, res) {
+    db.Event.findAll({}).then(function(dbevents) {
+      console.log("api events called ", dbevents);
+      res.json(dbevents);
+    });
+  });
+
+    // Get route for retrieving a single post
+    app.get("/api/event/:id", function(req, res) {
+      db.Event.findOne({
+        where: {
+          id: req.params.id
+        }
+      })
+        .then(function(dbEvent) {
+          res.json(dbEvent);
+        });
+    });
+
+    // Get route for retrieving event comments by event id
+    // app.get("/api/comment/event/:id", function(req, res) {
+    //   db.Event.findAll({
+    //     where: {
+    //       id: req.params.id
+    //     }
+    //   })
+    //     .then(function(dbEvent) {
+    //       res.json(dbEvent);
+    //     });
+    // });
 };

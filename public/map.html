@@ -124,37 +124,95 @@
             }
         }
 
+        function getEvents() {
+            // console.log("inside get comments")
+            $.get("/api/events", function (response) {
+                // console.log("This is the response callback ");
+                console.log(response);
+                var events = response;
+
+
+
+                for (var count = 0; count < events.length; count++) {
+                    var event = events[count];
+                    var latFloat = parseFloat(event.event_LAT);
+                    var lngFloat = parseFloat(event.event_LNG);
+
+
+                    var location = [
+                        {
+                            coords: { lat: latFloat, lng: lngFloat },
+                            content: "<h3>" + event.event_name + ": " + event.description + " - " + event.location_name + "</h3>"
+                        }];
+
+                    console.log("location ", location);
+                    console.log("Coords: ", location[0].coords);
+
+                }
+            });
+        }
+
         function initMap() {
             var charlotte = { lat: 35.2271, lng: -80.8431 }
-            map = new google.maps.Map(document.getElementById("map"), {
-                center: charlotte,
-                zoom: 13.5
-            });
+            console.log("CLI Coords", charlotte);
 
-            infoWindow = new google.maps.InfoWindow({
-                content: document.getElementById("form")
-            });
+            var eventLoc = [];
+            $.get("/api/event/2", function (response) {
+                // console.log("This is the response callback ");
+                console.log(response);
+                var event = response;
 
-            messagewindow = new google.maps.InfoWindow({
-                content: document.getElementById("message")
-            });
+                var latFloat = parseFloat(event.event_LAT);
+                var lngFloat = parseFloat(event.event_LNG);
 
-            google.maps.event.addListener(map, "click", function (event) {
-                marker = new google.maps.Marker({
-                    position: event.latLng,
-                    map: map,
+
+                var location = [
+                    {
+                        coords: { lat: latFloat, lng: lngFloat },
+                        content: "<h3>" + event.event_name + ": " + event.description + " - " + event.location_name + "</h3>"
+                    }];
+
+                console.log("location ", location);
+                console.log("Coords: ", location[0].coords);
+
+                eventLoc = location[0].coords;
+                console.log("Map Coords", charlotte);
+
+                map = new google.maps.Map(document.getElementById("map"), {
+                    center: eventLoc,
+                    zoom: 14.5
                 });
 
-                marker.addListener("click", function () {
-                    infoWindow.open(map, marker);
+
+                infoWindow = new google.maps.InfoWindow({
+                    content: document.getElementById("form")
                 });
 
-                // setTimeout(function () {
-                //     marker.setMap(null);
-                //     delete marker;
-                // }, 3000);
-                // return marker;
+                messagewindow = new google.maps.InfoWindow({
+                    content: document.getElementById("message")
+                });
+
+                google.maps.event.addListener(map, "click", function (event) {
+                    marker = new google.maps.Marker({
+                        position: event.latLng,
+                        map: map,
+                    });
+
+                    marker.addListener("click", function () {
+                        infoWindow.open(map, marker);
+                    });
+
+                    // setTimeout(function () {
+                    //     marker.setMap(null);
+                    //     delete marker;
+                    // }, 3000);
+                    // return marker;
+                });
             });
+
+
+
+
 
 
             // =========================================================
@@ -189,11 +247,10 @@
 
             // ==================================================
             getComments();
+            getEvents();
             // console.log("Getting Comments");
 
         }
-
-
 
         $("#save_marker").on("click", function (event) {
             event.preventDefault();
