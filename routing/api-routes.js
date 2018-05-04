@@ -28,7 +28,7 @@ module.exports = function(app) {
       user_LAT: req.body.lat,
       user_LNG: req.body.lng,
       createdAt: req.body.created_at,
-      events_id: req.body.events_id
+      EventId: Number.parseInt(req.body.events_id, 10)
     }).then(function(dbComment) {
       res.json(dbComment);
     });
@@ -63,7 +63,7 @@ module.exports = function(app) {
     });
 
     // Get route for retrieving event comments by event id
-    // app.get("/api/comment/event/:id", function(req, res) {
+    // app.get("/api/event/:id/comments", function(req, res) {
     //   db.Event.findAll({
     //     where: {
     //       id: req.params.id

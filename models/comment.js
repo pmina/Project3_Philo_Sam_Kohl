@@ -7,6 +7,7 @@ module.exports = function(sequelize, DataTypes) {
       location: DataTypes.STRING,
       user_LAT: DataTypes.FLOAT,
       user_LNG: DataTypes.FLOAT,
+      EventId: DataTypes.INTEGER
     },
     {
       timestamps: true
