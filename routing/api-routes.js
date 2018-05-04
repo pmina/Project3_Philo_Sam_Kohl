@@ -42,6 +42,17 @@ module.exports = function(app) {
     });
   });
 
+  // GET route for getting the comments for the specified event
+  app.get("/api/comments/:commentId", function(req, res) {
+    db.Comment.findAll({
+      where: {
+        EventId: req.params.commentId
+      }
+    }).then(function(dbComment) {
+      res.json(dbComment);
+    });
+  });
+
   //GET route for getting all the events
   app.get("/api/events", function(req, res) {
     db.Event.findAll({}).then(function(dbevents) {
