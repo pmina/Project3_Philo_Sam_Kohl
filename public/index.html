@@ -27,15 +27,15 @@
     <!-- Dropdown Structure -->
     <ul id="dropdown1" class="dropdown-content">
         <li>
-            <a href="#!">Festival In The Park</a>
+            <a href="map.html?eventID=3">Festival In The Park</a>
         </li>
         <li class="divider"></li>
         <li>
-            <a href="#!">Yiasau Greek Festival</a>
+            <a href="map.html?eventID=1">Yiasau Greek Festival</a>
         </li>
         <li class="divider"></li>
         <li>
-            <a href="#!">Charlotte Oktoberfest</a>
+            <a href="map.html?eventID=2">Charlotte Oktoberfest</a>
         </li>
     </ul>
     <nav>
@@ -76,14 +76,14 @@
 
 
             <div class="carousel">
-                <a class="carousel-item" href="#one!">
+                <a id="carousel1" class="carousel-item" href="#one!">
+                    <img src="../images/Final-Greek-Fest.jpg">
+                </a>
+                <a id="carousel2" class="carousel-item" href="#two!">
                     <img src="../images/Charlotte-Oktoberfest.jpg">
                 </a>
-                <a class="carousel-item" href="#two!">
+                <a id="carousel3" class="carousel-item" href="#three!">
                     <img src="../images/Festival-In-The-Park.jpg">
-                </a>
-                <a class="carousel-item" href="#three!">
-                    <img src="../images/Final-Greek-Fest.jpg">
                 </a>
 
             </div>
@@ -113,6 +113,26 @@
                     }, 5000); // every 2 seconds
 
                 });
+
+                $("#carousel1").on("click", function () {
+                    localStorage.eventID = 1;
+                    console.log(localStorage.eventID);
+                    window.location.href = "map";
+                });
+
+                $("#carousel2").on("click", function () {
+                    localStorage.eventID = 2;
+                    console.log(localStorage.eventID);
+                    window.location.href = "map";                    
+                });
+
+                $("#carousel3").on("click", function () {
+                    localStorage.eventID = 3;
+                    console.log(localStorage.eventID);
+                    window.location.href = "map";                    
+                });
+
+
 
                 // Or with jQuery
                 // <!-- 
