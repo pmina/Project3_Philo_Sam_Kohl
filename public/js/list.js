@@ -41,7 +41,7 @@
         selectLink = $(link);
         if (selectLink.length) {
           var top = selectLink.offset().top - CORRECTION;
-          $("body,html")
+          $("section,html")
             .stop()
             .animate({ scrollTop: top }, DELAY_SCROLLING);
         } else {
