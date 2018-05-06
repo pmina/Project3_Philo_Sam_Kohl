@@ -24,6 +24,8 @@ function getComments(eventId, map, callback) {
 
             addMarker(location[0], map);
 
+            // TODO also append these comments as a list
+
             if (callback != undefined) {
                 callback();
             }
@@ -82,7 +84,7 @@ function getEvents(calllback) {
 }
 
 function initMap() {
-    var eventId = 3;
+    var eventId = 3; // TODO grab the event id from the URL
     var charlotte = { lat: 35.2271, lng: -80.8431 }
 
     infoWindow = new google.maps.InfoWindow({
@@ -192,4 +194,46 @@ $(document).on("click", "#save_marker", function (event) {
     $("#comment_data").val("");
     $("#location").val("");
     infoWindow.close();
+
+     // Send an AJAX POST-request with jQuery
+  $.post("/api/new", newMarker)
+  // On success, run the following code
+  .then(function() {
+
+    var row = $("<div>");
+    row.addClass("chirp");
+
+    row.append("<p> Name: " + newMarker.name + " </p>");
+    row.append("<p> location: " + newMarker.location + " </p>");
+    row.append("<p> Comment: " + newMarker.comment + "</p>");
+  //   row.append("<p>" + newMarker.body + "</p>");
+  //   row.append("<p>At " + moment(newMarker.created_at).format("h:mma on dddd") + "</p>");
+
+    $("#user_comments").prepend(row);
+
+  });
 });
+
+// When the page loads, grab all of our chirps
+$.get("/api/event/:id/commets", function(data) {
+
+    if (data.length !== 0) {
+  
+      for (var i = 0; i < data.length; i++) {
+  
+        var row = $("<div>");
+        row.addClass("allEventComents");
+  
+        row.append("<p> Name: " + body. + " </p>");
+        row.append("<p> location: " + newMarker.location + " </p>");
+        row.append("<p> Comment: " + newMarker.comment + "</p>");
+  
+        $("#user_comments").prepend(row);
+  
+      }
+  
+    }
+  
+  });
+  
+ 

@@ -66,7 +66,8 @@ module.exports = function(app) {
       db.Event.findOne({
         where: {
           id: req.params.id
-        }
+        },
+        include:[db.Comment]
       })
         .then(function(dbEvent) {
           res.json(dbEvent);
