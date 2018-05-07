@@ -200,6 +200,8 @@ function initMap() {
 $(document).on("click", "#save_marker", function(event) {
   event.preventDefault();
 
+  var id = window.location.pathname.split('/')[2]
+
   var newMarker = {
     name: $("#person_name")
       .val()
@@ -212,11 +214,9 @@ $(document).on("click", "#save_marker", function(event) {
       .trim(),
     created_at: moment().format("YYYY-MM-DD HH:mm:ss"),
     lat: formMarker.getPosition().lat(),
-    lng: formMarker.getPosition().lng()
-    // events_id: $("#events_id").val()
+    lng: formMarker.getPosition().lng(),
+    events_id: id
   };
-
-  $.post("/api/new", newMarker);
 
   $("#person_name").val("");
   $("#comment_data").val("");
