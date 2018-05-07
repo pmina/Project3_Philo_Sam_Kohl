@@ -14,6 +14,8 @@
     <!-- Moment.js -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
 
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/map.css" />
+
     <style>
         #map {
             height: 400px;
@@ -23,7 +25,8 @@
 </head>
 
 <body>
-    <h1>Test Map</h1>
+    <h1>Festival Map</h1>
+    <div id="eventTitle"></div>
     <div id="map"></div>
     <div id="form">
         <table>
@@ -55,7 +58,7 @@
         
     </div>
 
-    <div id="message">Location saved</div>
+    <h1 id="message">Comments</h1>
 
     <!-- <div id="user_comments"><a href="#commentsList">Green</a></div> -->
     <div id="commentsList"></div>

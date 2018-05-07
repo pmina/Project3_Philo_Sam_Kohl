@@ -27,7 +27,7 @@ function getComments(eventId, map, callback) {
       addMarker(location[0], map);
 // ========================================================FIX=================
       // TODO also append these comments as a list
-      $("#commentsList").append('<li>' + comment.location + ": " + comment.comment_data + '</li>')
+      $("#commentsList").append('<p>' + "<b>Location: </b>" + comment.location + "  <b>|  Comment:    </b>" + comment.comment_data + '</p>')
     // =========================================================  
  
       if (callback != undefined) {
@@ -133,6 +133,7 @@ function initMap() {
       }
     ];
 
+    $("#eventTitle").prepend('<h1>' + event.event_name + '</h1>');
     console.log("location ", location);
     console.log("Coords: ", location[0].coords);
 
