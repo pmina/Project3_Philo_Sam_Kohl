@@ -52,12 +52,7 @@ function addMarker(location, map) {
   }
 }
 
-<<<<<<< HEAD
 function getEvents(calllback) {
-=======
-function getEvents(callback) {
-  // console.log("inside get comments")
->>>>>>> kmon1
   $.get("/api/events", function(response) {
     console.log(response);
     var events = response;
@@ -80,13 +75,6 @@ function getEvents(callback) {
             "</h3>"
         }
       ];
-<<<<<<< HEAD
-=======
-    // $("#eventTitle").prepend('<h2>' + event.location + '</h2>')
-      
-      console.log("location ", location);
-      console.log("Coords: ", location[0].coords);
->>>>>>> kmon1
 
       if (callback) {
         callback();
@@ -111,11 +99,7 @@ function removeFormMarker() {
 }
 
 function initMap() {
-<<<<<<< HEAD
-  var eventId = localStorage.eventID;
-=======
   var eventId = localStorage.eventID; 
->>>>>>> kmon1
   console.log(eventId);
 
   infoWindow = new google.maps.InfoWindow({});
@@ -144,16 +128,6 @@ function initMap() {
           "</h3>"
       }
     ];
-<<<<<<< HEAD
-=======
-    $("#eventTitle").prepend('<h2>' + event.event_name + '</h2>')
-    
-    console.log("location ", location);
-    console.log("Coords: ", location[0].coords);
-
-    eventLoc = location[0].coords;
-    console.log("Map Coords", charlotte);
->>>>>>> kmon1
 
     var map = new google.maps.Map(document.getElementById("map"), {
       center: location[0].coords,

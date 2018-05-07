@@ -9,7 +9,7 @@ CREATE TABLE comments (
   id INT NOT NULL AUTO_INCREMENT,
   person_name VARCHAR(100) NOT NULL,
   comment_data VARCHAR(1000) NOT NULL,
-  location VARCHAR(100) NOT NU
+  location VARCHAR(100) NOT NULL,
   user_LAT FLOAT,
   user_LNG FLOAT,
   createdAt TIMESTAMP NOT NULL,
