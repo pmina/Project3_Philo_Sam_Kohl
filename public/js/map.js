@@ -141,7 +141,7 @@ function initMap() {
 
     var map = new google.maps.Map(document.getElementById("map"), {
       center: eventLoc,
-      zoom: 14.5
+      zoom: 16
     });
     getComments(eventId, map);
 
