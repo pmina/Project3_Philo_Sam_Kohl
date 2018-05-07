@@ -7,31 +7,47 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Map-Test</title>
     <!-- Bootstrap CSS -->
-    
+
     <!-- jQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <!-- Moment.js -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/map.css">
-    <style>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/map.css" />
+
+    <!-- <style>
         #map {
             height: 400px;
             width: 100%;
         }
-    </style>
+    </style> -->
 </head>
 
 <body>
-    
-    <h1>Test Map</h1>
-    <div id="eventTitle"></div>    
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Logo</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li>
+                    <a href="/"><strong>Home</strong></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <h1>Festival Map</h1>
+    <div id="eventTitle"></div>
     <div id="map"></div>
-    <div id="form-container" style="display:none;">
-        <div id="form">
-            <table>
-                <tr>
-                    <td>Name:</td>
+    <!-- <div id="form">
+        <table>
+            <tr>
+                <td>Name:</td>
                 <td>
                     <input type="text" id="person_name" />
                 </td>
@@ -55,19 +71,23 @@
                 </td>
             </tr>
         </table>
+<<<<<<< HEAD
     </div>
     </div>
+=======
+>>>>>>> FinishLine
 
-    <div id="message">Location saved</div>
+    </div> -->
+
+    <h1 id="message">Comments</h1>
 
     <!-- <div id="user_comments"><a href="#commentsList">Green</a></div> -->
     <div id="commentsList"></div>
     </div>
-    
+
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6vUV61eUAanKcWusOEC62GdPV0CpxNNA&callback=initMap"></script>
     <script src="/js/map.js"></script>
-   
-    
-    <script src="js/maptest.js" type="text/javascript"></script>
+
 </body>
+
 </html>

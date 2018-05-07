@@ -1,7 +1,43 @@
+body {
+    background-color: #AADDFA;
+}
 
-#map{
-  padding-left: 0px;
-  padding-right: 0px;
-  width: 80%;
+.nav-wrapper{
+    background-color: black;
+    opacity: 0.9;    
+}
 
+#map {
+    width: 65%;
+    height: 400px;
+    margin: auto;
+    /* border-style: solid; */
+    border: 8px solid #E63946;
+}
+
+#commentsList {
+    border-collapse: collapse;
+    width: 65%;
+    /* margin-left: 15%;
+    margin-right: 5%; */
+    margin: auto;
+    background-color: whitesmoke;
+    border: 8px solid #E63946;
+}
+
+p {
+    padding: 8px;
+    padding-top: 5px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+    /* border-top: 1px solid #ddd; */
+}
+
+p:hover {background-color: thistle;}
+
+h1 {
+    text-align: center;
+    font-weight: bold;
+    color: whitesmoke;
+    text-shadow: 3px 3px black;
 }
