@@ -1,23 +1,43 @@
+body {
+    background-color: #AADDFA;
+}
+
 .nav-wrapper{
     background-color: black;
     opacity: 0.9;    
 }
 
+#map {
+    width: 65%;
+    height: 400px;
+    margin: auto;
+    /* border-style: solid; */
+    border: 8px solid darkblue;
+}
+
 #commentsList {
     border-collapse: collapse;
-    width: 70%;
-    margin-left: 15%;
-    margin-right: 5%;
+    width: 65%;
+    /* margin-left: 15%;
+    margin-right: 5%; */
+    margin: auto;
+    background-color: whitesmoke;
+    border: 8px solid darkblue;
 }
 
 p {
     padding: 8px;
+    padding-top: 5px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 2px solid #ddd;
+    /* border-top: 1px solid #ddd; */
 }
 
-p:hover {background-color:#f5f5f5;}
+p:hover {background-color: thistle;}
 
 h1 {
     text-align: center;
+    font-weight: bold;
+    color: whitesmoke;
+    text-shadow: 3px 3px black;
 }
