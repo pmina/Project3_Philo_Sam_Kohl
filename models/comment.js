@@ -1,9 +1,19 @@
 module.exports = function(sequelize, DataTypes) {
-  var Comment = sequelize.define(
-    "Comment",
-    {
-      person_name: DataTypes.STRING,
-      comment_data: DataTypes.STRING,
+  var Comment = sequelize.define("Comment", {
+      person_name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [1]
+        }
+      },
+      comment_data: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [1]
+        }
+      },
       location: DataTypes.STRING,
       user_LAT: DataTypes.FLOAT,
       user_LNG: DataTypes.FLOAT,
@@ -23,7 +33,6 @@ module.exports = function(sequelize, DataTypes) {
       }
     });
   };
-
 
   return Comment;
 };
