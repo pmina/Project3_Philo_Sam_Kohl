@@ -1,5 +1,6 @@
-var marker; // TODO remove me
 var infoWindow, messagewindow;
+var isUserEditingForm = false;
+var formMarker;
 
 function getComments(eventId, map, callback) {
   // console.log("inside get comments")
@@ -13,23 +14,20 @@ function getComments(eventId, map, callback) {
       var latFloat = parseFloat(comment.user_LAT);
       var lngFloat = parseFloat(comment.user_LNG);
 
-      var location = [
-        {
-          coords: { lat: latFloat, lng: lngFloat },
-          content:
-            "<h3>" + comment.location + ": " + comment.comment_data + "</h3>"
-        }
-      ];
+      var location = {
+        coords: { lat: latFloat, lng: lngFloat },
+        content:
+          "<h3>" + comment.location + ": " + comment.comment_data + "</h3>"
+      };
 
-      console.log("location ", location);
-      console.log("Coords: ", location[0].coords);
-
-      addMarker(location[0], map);
-// ========================================================FIX=================
+      addMarker(location, map);
+      // ========================================================FIX=================
       // TODO also append these comments as a list
-      $("#commentsList").append('<li>' + comment.location + ": " + comment.comment_data + '</li>')
-    // =========================================================  
- 
+      $("#commentsList").append(
+        "<li>" + comment.location + ": " + comment.comment_data + "</li>"
+      );
+      // =========================================================
+
       if (callback != undefined) {
         callback();
       }
@@ -41,29 +39,21 @@ function addMarker(location, map) {
   var marker = new google.maps.Marker({
     position: location.coords,
     map: map
-    // icon: props.iconImage
   });
-
-  console.log("Marker: ", marker);
-  console.log("Coordinates: ", location.coords);
 
   //Check content
   if (location.content) {
-    var infoWindow = new google.maps.InfoWindow({
-      content: location.content
-    });
-
-    console.log("Adding location content info window", location.content);
     marker.addListener("click", function() {
+      infoWindow.setContent(location.content);
       infoWindow.open(map, marker);
+
+      removeFormMarker();
     });
   }
 }
 
 function getEvents(calllback) {
-  // console.log("inside get comments")
   $.get("/api/events", function(response) {
-    // console.log("This is the response callback ");
     console.log(response);
     var events = response;
 
@@ -86,9 +76,6 @@ function getEvents(calllback) {
         }
       ];
 
-      console.log("location ", location);
-      console.log("Coords: ", location[0].coords);
-
       if (callback) {
         callback();
       }
@@ -96,23 +83,30 @@ function getEvents(calllback) {
   });
 }
 
-function initMap() {
-  var eventId = localStorage.eventID; // TODO grab the event id from the URL
-  console.log(eventId);
-  var charlotte = { lat: 35.2271, lng: -80.8431 };
+function moveFormToInfoWindow() {
+  var newForm = document.getElementById("form").cloneNode(true);
+  infoWindow.setContent(newForm);
+}
 
-  infoWindow = new google.maps.InfoWindow({
-    content: document.getElementById("form")
-  });
+function removeFormMarker() {
+  isUserEditingForm = false;
+  if (formMarker) {
+    formMarker.setMap(null);
+    formMarker = undefined;
+  }
+}
+
+function initMap() {
+  var eventId = localStorage.eventID;
+  console.log(eventId);
+
+  infoWindow = new google.maps.InfoWindow({});
   messagewindow = new google.maps.InfoWindow({
     content: document.getElementById("message")
   });
 
-  console.log("CLI Coords", charlotte);
-
   var eventLoc = [];
   $.get("/api/event/" + eventId, function(response) {
-    // console.log("This is the response callback ");
     console.log(response);
     var event = response;
 
@@ -133,33 +127,32 @@ function initMap() {
       }
     ];
 
-    console.log("location ", location);
-    console.log("Coords: ", location[0].coords);
-
-    eventLoc = location[0].coords;
-    console.log("Map Coords", charlotte);
-
     var map = new google.maps.Map(document.getElementById("map"), {
-      center: eventLoc,
+      center: location[0].coords,
       zoom: 16
     });
     getComments(eventId, map);
 
+    google.maps.event.addListener(infoWindow, "closeclick", function() {
+      removeFormMarker();
+    });
+
     google.maps.event.addListener(map, "click", function(event) {
-      marker = new google.maps.Marker({
+      if (isUserEditingForm) {
+        // just move the marker
+        formMarker.setPosition(event.latLng);
+        return false;
+      }
+
+      isUserEditingForm = true;
+
+      formMarker = new google.maps.Marker({
         position: event.latLng,
         map: map
       });
 
-      marker.addListener("click", function() {
-        infoWindow.open(map, marker);
-      });
-
-      // setTimeout(function () {
-      //     marker.setMap(null);
-      //     delete marker;
-      // }, 3000);
-      // return marker;
+      infoWindow.open(map, formMarker);
+      moveFormToInfoWindow();
     });
   });
 
@@ -197,7 +190,7 @@ function initMap() {
   // console.log("Getting Comments");
 }
 
-$().on("click", "#save_marker", function(event) {
+$(document).on("click", "#save_marker", function(event) {
   event.preventDefault();
 
   var newMarker = {
@@ -211,11 +204,10 @@ $().on("click", "#save_marker", function(event) {
       .val()
       .trim(),
     created_at: moment().format("YYYY-MM-DD HH:mm:ss"),
-    lat: marker.getPosition().lat(),
-    lng: marker.getPosition().lng(),
-    events_id: $("#events_id").val()
+    lat: formMarker.getPosition().lat(),
+    lng: formMarker.getPosition().lng()
+    // events_id: $("#events_id").val()
   };
-  console.log(newMarker);
 
   $.post("/api/new", newMarker);
 
