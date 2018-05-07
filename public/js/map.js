@@ -60,7 +60,7 @@ function addMarker(location, map) {
   }
 }
 
-function getEvents(calllback) {
+function getEvents(callback) {
   // console.log("inside get comments")
   $.get("/api/events", function(response) {
     // console.log("This is the response callback ");
@@ -85,7 +85,8 @@ function getEvents(calllback) {
             "</h3>"
         }
       ];
-
+    // $("#eventTitle").prepend('<h2>' + event.location + '</h2>')
+      
       console.log("location ", location);
       console.log("Coords: ", location[0].coords);
 
@@ -93,11 +94,13 @@ function getEvents(calllback) {
         callback();
       }
     }
+    // $("#eventTitle").append('<h2>' + event + '</h2>')
+    
   });
 }
 
 function initMap() {
-  var eventId = localStorage.eventID; // TODO grab the event id from the URL
+  var eventId = localStorage.eventID; 
   console.log(eventId);
   var charlotte = { lat: 35.2271, lng: -80.8431 };
 
@@ -132,7 +135,8 @@ function initMap() {
           "</h3>"
       }
     ];
-
+    $("#eventTitle").prepend('<h2>' + event.event_name + '</h2>')
+    
     console.log("location ", location);
     console.log("Coords: ", location[0].coords);
 
@@ -241,7 +245,7 @@ $().on("click", "#save_marker", function(event) {
     });
 });
 
-// When the page loads, grab all of our commentst
+// When the page loads, grab all of our comments
 $.get("/api/comments/:commentId", function(data) {
   if (data.length !== 0) {
     for (var i = 0; i < data.length; i++) {
