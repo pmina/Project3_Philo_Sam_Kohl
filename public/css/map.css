@@ -8,8 +8,8 @@ body {
 }
 
 #map {
-    width: 65%;
-    height: 400px;
+    width: 80%;
+    height: 500px;
     margin: auto;
     /* border-style: solid; */
     border: 8px solid #E63946;
