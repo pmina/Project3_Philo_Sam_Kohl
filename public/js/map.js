@@ -27,7 +27,7 @@ function getComments(eventId, map, callback) {
       addMarker(location[0], map);
 // ========================================================FIX=================
       // TODO also append these comments as a list
-      $("#commentsList").append('<li><a>' + comment.location + ": " + comment.comment_data + '</a></li>')
+      $("#commentsList").append('<li>' + comment.location + ": " + comment.comment_data + '</li>')
     // =========================================================  
  
       if (callback != undefined) {
@@ -242,7 +242,7 @@ $().on("click", "#save_marker", function(event) {
 });
 
 // When the page loads, grab all of our commentst
-$.get("/api/event/:id/comments", function(data) {
+$.get("/api/comments/:commentId", function(data) {
   if (data.length !== 0) {
     for (var i = 0; i < data.length; i++) {
       var row = $("<div>");
