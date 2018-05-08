@@ -1,10 +1,3 @@
--- for heroku
--- SELECT * FROM yljwjre2tmzcx94z.event_tables;  
-
--- for your local host
--- SELECT * FROM project3_db.comments;
-
-
 INSERT INTO events (event_name, location_name, descrption, event_LAT, event_LNG, createdAt, updatedAt)
 VALUES( "Yiasou Greek Festival","600 East Blvd.", "The Yiasou Greek Festival,
  one of Charlotte’s largest cultural events, will be held Sept. 6-9, 2018.
