@@ -23,7 +23,7 @@ function getComments(eventId, map, callback) {
       addMarker(location, map);
       // ========================================================FIX=================
       // TODO also append these comments as a list
-      $("#commentsList").append('<p class="commentlistclass">' + "<b>Location: </b>" + comment.location + "  <b></br>  Comment:    </b>" + comment.comment_data +  "  <b><br>  Time:    </b>" + comment.createdAt + '</p>' )
+      $("#commentsList").append('<p class="commentlistclass">' + "<b>Location: </b>" + comment.location + "  <b></br>  Comment:    </b>" + comment.comment_data +  "  <b><br>  Time:    </b>" + moment(comment.createdAt).format(' h:mm a, MMM Do YY') + '</p>' )
     // =========================================================  
  
       if (callback != undefined) {
