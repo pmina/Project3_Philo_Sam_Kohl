@@ -11,7 +11,7 @@ VALUES( "Charlotte Oktoberfest","4400 Sharon Road", "Grab your pretzel necklaces
  Symphony Park in Sept. 2018 (final dates TBD) for The Charlotte Oktoberfest. Enjoy a great
   premium craft beer selection and take advantage of the amazing food and
    fun activities offered at the festival.",
-    35.1518496 , -80.8317485, NOW(), NOW());
+    35.1552204 , -80.83535689999997, NOW(), NOW());
 
 INSERT INTO events (event_name, location_name, descrption, event_LAT, event_LNG, createdAt, updatedAt)
 VALUES( "Festival in the Park", "Freedom Park", "Charlotte’s oldest (and free)
