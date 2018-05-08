@@ -23,7 +23,7 @@ function getComments(eventId, map, callback) {
       addMarker(location, map);
       // ========================================================FIX=================
       // TODO also append these comments as a list
-      $("#commentsList").append('<p class="commentlistclass">' + "<b>Location: </b>" + comment.location + "  <b>|  Comment:    </b>" + comment.comment_data + '</p>')
+      $("#commentsList").append('<p class="commentlistclass">' + "<b>Location: </b>" + comment.location + "  <b></br>  Comment:    </b>" + comment.comment_data +  "  <b><br>  Time:    </b>" + comment.createdAt + '</p>' )
     // =========================================================  
  
       if (callback != undefined) {
@@ -233,6 +233,7 @@ $(document).on("click", "#save_marker", function(event) {
       row.append("<p> Name: " + newMarker.name + " </p>");
       row.append("<p> location: " + newMarker.location + " </p>");
       row.append("<p> Comment: " + newMarker.comment + "</p>");
+      row.append("<p> Time: " + newMarker.createdAt + "</p>")
       //   row.append("<p>" + newMarker.body + "</p>");
       //   row.append("<p>At " + moment(newMarker.created_at).format("h:mma on dddd") + "</p>");
 
@@ -251,6 +252,7 @@ $.get("/api/comments/:commentId", function(data) {
       row.append("<p> Name: " + body + " </p>");
       row.append("<p> location: " + newMarker.location + " </p>");
       row.append("<p> Comment: " + newMarker.comment + "</p>");
+      
 
       $("#user_comments").prepend(row);
     }
