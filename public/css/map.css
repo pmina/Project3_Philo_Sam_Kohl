@@ -1,66 +1,69 @@
 /* body {
     background-color: #0B0241;
 } */
-body{
+body {
   background-image: url("../images/CharlotteTemp.jpg");
   background-size: 100%;
 }
 
-.nav-wrapper{
-    background-color: black;
-    opacity: 0.9;    
+.nav-wrapper {
+  background-color: black;
+  opacity: 0.9;
 }
 
 #map {
-    width: 80%;
-    height: 600px;
-    margin: auto;
-    /* border-style: solid; */
-    border: 3px solid #880F05;
+  width: 80%;
+  height: 600px;
+  margin: auto;
+  /* border-style: solid; */
+  border: 3px solid #880f05;
 }
 
 #commentsList {
-    border-collapse: collapse;
-    width: 65%;
-    /* margin-left: 15%;
+  border-collapse: collapse;
+  width: 65%;
+  /* margin-left: 15%;
     margin-right: 5%; */
-    margin: auto;
-    background-color: whitesmoke;
-    border: 3px solid #880F05;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    margin-bottom: 150px
+  margin: auto;
+  background-color: whitesmoke;
+  border: 3px solid #880f05;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  margin-bottom: 150px;
 }
 
-.commentlistclass{
+.commentlistclass {
   /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
-  font-family:  "Permanent Marker";
+  font-family: "Permanent Marker";
   /* font-family: "Rock Salt"; */
 }
 
 p {
-    padding: 8px;
-    padding-top: 5px;
-    text-align: left;
-    border-bottom: 2px solid #ddd;
-    /* border-top: 1px solid #ddd;  */
+  padding: 8px;
+  padding-top: 5px;
+  text-align: left;
+  border-bottom: 2px solid #ddd;
+  /* border-top: 1px solid #ddd;  */
 }
 
-p:hover {background-color: thistle;}
+p:hover {
+  background-color: thistle;
+}
 
 h1 {
-    font-family:  "Permanent Marker";
-    text-align: center;
-    /* font-weight: bold; */
-    color: #FBC220;
-    text-shadow: 3px 3px black;
+  font-family: "Permanent Marker";
+  text-align: center;
+  /* font-weight: bold; */
+  color: #fbc220;
+  text-shadow: 3px 3px black;
 }
 
-.parallax { 
+.parallax {
   /* The image used */
   background-image: url("../images/CharlotteTemp.jpg");
 
   /* Set a specific height */
-  height: 500px; 
+  height: 500px;
 
   /* Create the parallax scrolling effect */
   background-attachment: fixed;
