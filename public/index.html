@@ -53,96 +53,55 @@
     </nav>
 
     <div class="carousel">
-        <a class="js-carousel-item carousel-item" data-item="1" href="#one!">
+        <a class="js-carousel-item carousel-item" href="/map/1">
             <img src="../images/Final-Greek-Fest.jpg">
         </a>
-        <a class="js-carousel-item carousel-item" data-item="2" href="#two!">
+        <a class="js-carousel-item carousel-item" href="/map/2">
             <img src="../images/Charlotte-Oktoberfest.jpg">
         </a>
-        <a class="js-carousel-item carousel-item" data-item="3" href="#three!">
+        <a class="js-carousel-item carousel-item" href="/map/3">
             <img src="../images/Festival-In-The-Park.jpg">
         </a>
     </div>
-
-            <!-- FOOTER???? -->
-            <!-- MEDIA QUERY FOR DROPDOWN MENU??? -->
-
-            <div class="container">
-                    <div class="row">
-                        <div class="col s12 m12">
-                            <div class="card black darken-1" id="aboutStyle">
-                                <div class="card-content white-text">
-                                    <span class="card-title"><b>Event Comment</b></span>
-                                    <p>
-                                        <h6>Welcome to Event Comment! This is your ultimate source for reading and posting helpful comments in real time 
-                                            about events and festivals.  Just click on your festival above and you will be taken to a separate page where you can
-                                            drop pins using Google Maps to leave comments about the festival, or see what others have to say! 
-                                        </h6>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-            <script>
-                $(document).ready(function () {
-                    $(".dropdown-trigger").dropdown();
-                });
-
-                document.addEventListener('DOMContentLoaded', function () {
-                    var elems = document.querySelectorAll('.carousel');
-                    var instances = M.Carousel.init(elems, {
-                        duration: 7000,
-                        indicators: true
-                    });
-
-                    $('.carousel').carousel({
-                        duration: 1000
-                    });
-                    setInterval(function () {
-                        $('.carousel').carousel('next');
-                    }, 7500); // every 2 seconds
-                });
-
-                $(".js-carousel-item").on("click", function () {
-                    localStorage.eventID = $(this).data("item");
-                    window.location.href = "map/" + localStorage.eventID;
-                });
-//  ======================WE NEED TO MAKE MORE ONCLICK FUNCTIONS SO FOR THE DROPDOWN MENU IN INDEX.HTML======
-
-
-                // Or with jQuery
-                // <!-- 
-                //                     $(document).ready(function () {
-                //                         $('.carousel').carousel();
-                //                     }); -->
-            </script>
-
-
-            <footer class="page-footer">
-                <!-- <div class="container">
-          <div class="row">
-            <div class="col l6 s12">
-              <h5 class="white-text">Footer Content</h5>
-              <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12">
+                <div class="card black darken-1" id="aboutStyle">
+                    <div class="card-content white-text">
+                        <span class="card-title"><b>Event Comment</b></span>
+                        <p>
+                            <h6>Welcome to Event Comment! This is your ultimate source for reading and posting helpful comments in real time 
+                                about events and festivals.  Just click on your festival above and you will be taken to a separate page where you can
+                                drop pins using Google Maps to leave comments about the festival, or see what others have to say! 
+                            </h6>
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="col l4 offset-l2 s12">
-              <h5 class="white-text">Links</h5>
-              <ul>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-              </ul>
-            </div>
-          </div>
-        </div> -->
-                <div class="footer-copyright">
-                    <!-- <div class="container"> -->
-                    <!-- © 2014 Copyright Text
-          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-          </div> -->
-                    <!-- </div> -->
-            </footer>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $(".dropdown-trigger").dropdown();
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.carousel');
+            var instances = M.Carousel.init(elems, {
+                duration: 7000,
+                indicators: true
+            });
+
+            $('.carousel').carousel({
+                duration: 1000
+            });
+            setInterval(function () {
+                $('.carousel').carousel('next');
+            }, 7500); // every 2 seconds
+        });
+    </script>
+    <footer class="page-footer"></footer>
 </body>
 
 </html>

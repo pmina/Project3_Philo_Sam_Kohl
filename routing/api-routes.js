@@ -18,8 +18,6 @@ module.exports = function(app) {
 
   //Add a marker
   app.post("/api/new", function(req, res) {
-    console.log("Marker data:");
-    console.log(req.body);
 
     db.Comment.create({
       person_name: req.body.name,
@@ -38,7 +36,6 @@ module.exports = function(app) {
   // GET route for getting all of the comments
   app.get("/api/comments/", function(req, res) {
     db.Comment.findAll({}).then(function(dbComment) {
-      console.log("api comments called ", dbComment);
       res.json(dbComment);
     });
   });
@@ -57,7 +54,6 @@ module.exports = function(app) {
   //GET route for getting all the events
   app.get("/api/events", function(req, res) {
     db.Event.findAll({}).then(function(dbevents) {
-      console.log("api events called ", dbevents);
       res.json(dbevents);
     });
   });

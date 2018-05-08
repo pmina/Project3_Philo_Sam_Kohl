@@ -3,10 +3,7 @@ var isUserEditingForm = false;
 var formMarker;
 
 function getComments(eventId, map, callback) {
-  // console.log("inside get comments")
   $.get("/api/comments/" + eventId, function(response) {
-    // console.log("This is the response callback ");
-    console.log(response);
     var comments = response;
 
     for (var count = 0; count < comments.length; count++) {
@@ -52,7 +49,6 @@ function addMarker(location, map) {
 
 function getEvents(calllback) {
   $.get("/api/events", function(response) {
-    console.log(response);
     var events = response;
 
     for (var count = 0; count < events.length; count++) {
@@ -97,8 +93,7 @@ function removeFormMarker() {
 }
 
 function initMap() {
-  var eventId = localStorage.eventID; 
-  console.log(eventId);
+  var eventId = window.location.pathname.split('/')[2]
 
   infoWindow = new google.maps.InfoWindow({});
   messagewindow = new google.maps.InfoWindow({
@@ -107,7 +102,6 @@ function initMap() {
 
   var eventLoc = [];
   $.get("/api/event/" + eventId, function(response) {
-    console.log(response);
     var event = response;
 
     var latFloat = parseFloat(event.event_LAT);
