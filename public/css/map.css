@@ -27,7 +27,8 @@ body{
     margin: auto;
     background-color: whitesmoke;
     border: 3px solid #880F05;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-bottom: 150px
 }
 
 .commentlistclass{
