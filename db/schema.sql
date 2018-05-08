@@ -37,8 +37,8 @@ CREATE TABLE events(
 
   event_id INT NOT NULL AUTO_INCREMENT,
   event_name VARCHAR(100) NOT NULL,
-  -- descrption VARCHAR(100) NOT NULL,
   -- location_name VARCHAR(100) NOT NULL,
+  -- descrption VARCHAR(100) NOT NULL,
   event_LAT FLOAT,
   event_LNG FLOAT,
   PRIMARY KEY (id)
