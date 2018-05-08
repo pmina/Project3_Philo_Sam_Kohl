@@ -23,7 +23,7 @@ function getComments(eventId, map, callback) {
       addMarker(location, map);
       // ========================================================FIX=================
       // TODO also append these comments as a list
-      $("#commentsList").append('<p>' + "<b>Location: </b>" + comment.location + "  <b>|  Comment:    </b>" + comment.comment_data + '</p>')
+      $("#commentsList").append('<p class="commentlistclass">' + "<b>Location: </b>" + comment.location + "  <b>|  Comment:    </b>" + comment.comment_data + '</p>')
     // =========================================================  
  
       if (callback != undefined) {
@@ -136,7 +136,7 @@ function initMap() {
 
     var map = new google.maps.Map(document.getElementById("map"), {
       center: location[0].coords,
-      zoom: 16
+      zoom: 17
     });
     getComments(eventId, map);
 
@@ -238,6 +238,7 @@ $(document).on("click", "#save_marker", function(event) {
 
       $("#user_comments").prepend(row);
     });
+    location.reload();
 });
 
 // When the page loads, grab all of our comments

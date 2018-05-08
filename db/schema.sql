@@ -33,7 +33,7 @@ CREATE TABLE comments (
 -- );
 
 
-CREATE TABLE event_table(
+CREATE TABLE events(
 
   event_id INT NOT NULL AUTO_INCREMENT,
   event_name VARCHAR(100) NOT NULL,

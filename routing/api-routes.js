@@ -32,6 +32,7 @@ module.exports = function(app) {
     }).then(function(dbComment) {
       res.json(dbComment);
     });
+    location.reload();
   });
 
   // GET route for getting all of the comments

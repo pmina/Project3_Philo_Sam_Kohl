@@ -20,7 +20,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
     <link rel="stylesheet" type="text/css" media="screen" href="../css/map.css" />
-
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Permanent+Marker" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Rock+Salt" />
     <!-- <style>
         #map {
             height: 400px;
@@ -29,10 +30,12 @@
     </style> -->
 </head>
 
-<body>
+<body class="parallax">
     <nav>
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Logo</a>
+            <a href="#" class="brand-logo"><img src="../images/unnamed.jpg" alt="logo"/></a>
+            
+            
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li>
                     <a href="/"><strong>Home</strong></a>
@@ -82,6 +85,10 @@
     <!-- <div id="user_comments"><a href="#commentsList">Green</a></div> -->
     <div id="commentsList"></div>
     </div>
+
+    <footer class="page-footer">
+            <div class="footer-copyright"></div>
+        </footer>
 
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6vUV61eUAanKcWusOEC62GdPV0CpxNNA&callback=initMap"></script>
     <script src="/js/map.js"></script>

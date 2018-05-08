@@ -6,7 +6,7 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/index.html"));
   });
-  // homepage
+  // maps by event
   app.get("/map/:eventId", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/map.html"));
   });

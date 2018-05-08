@@ -1,3 +1,8 @@
+-- for heroku
+-- SELECT * FROM yljwjre2tmzcx94z.event_tables;  
+
+-- for your local host
+-- SELECT * FROM project3_db.comments;
 
 
 INSERT INTO events (event_name, location_name, descrption, event_LAT, event_LNG, createdAt, updatedAt)
