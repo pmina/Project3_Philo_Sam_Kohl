@@ -5,7 +5,7 @@
 // Dependencies
 // =============================================================
 // var Profile = require("../models/profiles.js");
-var db = require("../models");
+var db = require("../models"); 
 // Routes
 
 module.exports = function(app) {
